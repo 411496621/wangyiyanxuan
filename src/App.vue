@@ -1,7 +1,7 @@
 <template>
   <div>
-
-    <Footer />
+    <router-view />
+    <Footer v-show="$route.meta.isShowFooter" />
   </div>
 </template>
 
@@ -14,6 +14,7 @@
   }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus" scoped>
-
+<style lang="stylus" rel="stylesheet/stylus" >
+  body
+   font-size 24px
 </style>
