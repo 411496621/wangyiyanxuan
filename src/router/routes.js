@@ -39,7 +39,7 @@ export default [
   },
   {
     path:'/',
-    redirect:'/home'
+    redirect:'/category'
   }
 
 ]

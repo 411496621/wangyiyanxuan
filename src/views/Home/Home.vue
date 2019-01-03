@@ -384,8 +384,6 @@
                 position absolute
                 right 0
                 bottom: 0
-
-
            .right-bottom
              width: 313px
              height: 195px
