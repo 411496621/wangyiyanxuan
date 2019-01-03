@@ -70,9 +70,110 @@
             <span>新人专享礼</span>
          </div>
          <div class="rookie-content">
-           <div class="left"></div>
+           <div class="left">
+             <div class="text">新人专享礼包</div>
+             <img src="//yanxuan.nosdn.127.net/a020bed0783956f650abc016e386bead.png" alt="">
+           </div>
+           <div class="right">
+             <div class="right-top">
+               <div class="title">福利社</div>
+               <div class="text">今日特价</div>
+               <img src="http://yanxuan.nosdn.127.net/e231234a324d07b620af7ffd3734642b.png?imageView&thumbnail=200x200&quality=75" alt="">
+             </div>
+             <div class="right-bottom">
+               <div class="title">新人拼团</div>
+               <div class="text">1元起包邮</div>
+               <img src="http://yanxuan.nosdn.127.net/db52ac0a791cecb9129a4a34fc864f48.png?imageView&thumbnail=200x200&quality=75" alt="">
+             </div>
+           </div>
          </div>
       </div>
+      <Split />
+      <div class="pinpai-wrapper">
+        <div class="pinpai-header">品牌制造商直供</div>
+        <div class="content">
+           <ul class="list">
+             <li>
+                <h4 class="title">海外制造商</h4>
+                <div>
+                  <span class="price">9.9元起</span>
+                  <span class="description">上新</span>
+                </div>
+             </li>
+             <li>
+                <h4 class="title">CK制造商</h4>
+                <div>
+                  <span class="price">25元起</span>
+                </div>
+             </li>
+             <li>
+                <h4 class="title">新秀丽制造商</h4>
+                <div>
+                  <span class="price">34.9元起</span>
+                </div>
+             </li>
+             <li>
+                <h4 class="title">MUJI制造商</h4>
+                <div>
+                  <span class="price">35元起</span>
+                </div>
+             </li>
+           </ul>
+        </div>
+      </div>
+      <Split />
+      <div class="hot-sale">
+        <h4 class="hot-sale-header">类目热销榜</h4>
+        <div class="content">
+           <div class="content-top">
+             <div class="left">
+               <span class="text">服装榜</span>
+               <img src="http://yanxuan.nosdn.127.net/de34d4d8407709f2edd88597d66fcfcb.png?imageView&quality=65&thumbnail=200x200" alt="">
+             </div>
+             <div class="right">
+               <span class="text">鞋包配饰榜</span>
+               <img src="http://yanxuan.nosdn.127.net/246e27aba6243b29f61bbdee9651b393.png?imageView&quality=65&thumbnail=200x200" alt="">
+             </div>
+           </div>
+           <ul class="list">
+             <li>
+               <div class="name">居家榜</div>
+               <img src="http://yanxuan.nosdn.127.net/5b0aed79b7c9a0555b930ece1cf6c6e4.png?imageView&quality=65&thumbnail=200x200" alt="">
+             </li>
+             <li>
+               <div class="name">饮食榜</div>
+               <img src="http://yanxuan.nosdn.127.net/1979054e3a1c8409f10191242165e674.png?imageView&quality=65&thumbnail=200x200" alt="">
+             </li>
+             <li>
+               <div class="name">电器榜</div>
+               <img src="http://yanxuan.nosdn.127.net/73a065d6fc8c32197b54421808c54788.png?imageView&quality=65&thumbnail=200x200" alt="">
+             </li>
+             <li>
+               <div class="name">洗护榜</div>
+               <img src="http://yanxuan.nosdn.127.net/2d43d642d928240ef2013e8da1c133b2.png?imageView&quality=65&thumbnail=200x200" alt="">
+             </li>
+             <li>
+               <div class="name">餐厨榜</div>
+               <img src="http://yanxuan.nosdn.127.net/02da8bce2fa3a182d398f6a09e8ac2f5.png?imageView&quality=65&thumbnail=200x200" alt="">
+             </li>
+             <li>
+               <div class="name">婴童榜</div>
+               <img src='http://yanxuan.nosdn.127.net/ebffc08b434eaab87392fc401c58fcc5.png?imageView&quality=65&thumbnail=200x200' alt="">
+             </li>
+             <li>
+               <div class="name">文体榜</div>
+               <img src="http://yanxuan.nosdn.127.net/55425f24345d01992d61a1646325ac94.png?imageView&quality=65&thumbnail=200x200" alt="">
+             </li>
+             <li>
+               <div class="name">特色区榜</div>
+               <img src="http://yanxuan.nosdn.127.net/924feec4a04a8d8570b28f7b6978d9a5.png?imageView&quality=65&thumbnail=200x200" alt="">
+             </li>
+
+
+           </ul>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
@@ -119,6 +220,7 @@
     left 0
     top 0
     background: #fff
+    z-index 5
     .header-top
       padding 12px 30px
       clearFix()
@@ -144,7 +246,6 @@
         border-radius 6px
         margin-left 18px
         margin-top 13px
-
 
 
     .nav-wrapper
@@ -174,7 +275,6 @@
                 &.active
                   color #BF4248
                   border-bottom 3px solid #BF4248
-
        .arrow
           position absolute
           right 0
@@ -186,6 +286,8 @@
 
   .main
     padding-top 152px
+    padding-bottom 85px
+
     .service-wrapper
        .service-list
           width 100%
@@ -219,7 +321,7 @@
 
 
     .rookie-wrapper
-      padding  0 25px
+      padding  0 30px 35px
       .rookie-header
          height 90px
          line-height 90px
@@ -248,6 +350,159 @@
 
 
 
+      .rookie-content
+         color #333
+         font-size 32px
+         font-family PingFangSC-Medium
+         clearFix()
+         .left
+           float left
+           width: 343px
+           height: 434px
+           background: #F9E9CF
+           margin-right 4px
+           .text
+              padding 30px 0 0 30px
+           img
+             margin 35px 0 0 45px
+         .right
+           width: 343px
+           height: 434px
+           float right
+           .right-top
+              width 313px
+              height: 195px
+              padding 20px 0 0 30px
+              background #FBE2D3
+              position relative
+              margin-bottom 4px
+              .text
+                color #7F7F7F
+                font-size 24.0128px
+                margin-top 10px
+              img
+                position absolute
+                right 0
+                bottom: 0
 
+
+           .right-bottom
+             width: 313px
+             height: 195px
+             padding 20px 0 0 30px
+             background: #FFECC2
+             position relative
+             .text
+                margin-top 7px
+                padding 0 10px
+                width: 100px
+                height: 32px
+                background: #CBB693
+                color #fff
+                text-align center
+                font-size 21px
+                line-height 32px
+                border-radius 4px
+
+             img
+               position absolute
+               right: 0
+               bottom: 0
+    .pinpai-wrapper
+      padding  0 30px 35px
+      .pinpai-header
+        height: 100px
+        font-size 32px
+        line-height 100px
+        color #333
+      .content
+        .list
+           clearFix()
+           li
+             float left
+             width:338px
+             height: 237px
+             margin 0 4px 4px 0
+             padding-top 23px
+             .title
+               text-align center
+               font-size 28px
+               color #333
+               margin-bottom 10px
+             div
+               text-align center
+               font-size 24px
+               .price
+                  color #7F7F7F
+               .description
+                 color #fff
+                 background: rgb(203, 182, 147)
+                 padding 0 5px
+
+
+             &:nth-child(1)
+               background url(./images/1.jpg) no-repeat
+               background-size 100%
+             &:nth-child(2)
+               background url(./images/2.png) no-repeat
+               background-size 100%
+             &:nth-child(3)
+               background url(./images/3.png) no-repeat
+               background-size 100%
+             &:nth-child(4)
+               background url(./images/4.jpg) no-repeat
+               background-size 100%
+    .hot-sale
+      padding  0 30px 35px
+      .hot-sale-header
+        height: 100px
+        font-size 32px
+        line-height 100px
+        color #333
+      .content
+        .content-top
+          margin-bottom 10px
+          clearFix()
+          .left
+             width: 49.5%
+             float left
+             background: #F9F3E4
+             vertical-align middle
+             position relative
+          .right
+             width: 49.5%
+             float right
+             background: #EBEFF6
+             position relative
+          .text
+             position absolute
+             top 50%
+             transform translateY(-50%)
+             left 30px
+             font-size 28px
+             color #333
+          img
+             float right
+
+
+        .list
+           clearFix()
+           li
+             float left
+             width: 165px
+             height: 180px
+             margin 0 10px 10px 0
+             background: #F5F5F5
+             text-align center
+             &:nth-child(4n)
+               margin-right 0
+             img
+               width: 120px
+               height: 120px
+             .name
+               margin-top 10px
+               font-size 24px
+               color #333
+               margin-bottom 10px
 
 </style>
