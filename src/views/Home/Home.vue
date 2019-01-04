@@ -3,7 +3,7 @@
     <div class="header">
       <div class="header-top">
         <div class="left">网易严选</div>
-        <div class="input-text">
+        <div class="input-text" @click="$router.push('/search')">
           <span class="placeholder">搜索商品,共19959款好物</span>
         </div>
         <div class="right">登录</div>
@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="main">
-      <div class="swiper-container">
+      <div class="swiper-container mySwiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <img src="https://yanxuan.nosdn.127.net/089fdc9bfdc75ccfbe9c349d0096804b.jpg?imageView&amp;quality=75&amp;thumbnail=750x0">
@@ -59,7 +59,7 @@
       <div class="catelist-wrapper">
           <div class="cateList">
             <a href="javascript:;" v-for="(Item,index) in cateList" :key="index">
-              <img :src="Item.subCateList[0].wapBannerUrl" alt="">
+              <img v-lazy="Item.subCateList[0].wapBannerUrl" alt="">
               <span>{{Item.name}}</span>
             </a>
           </div>

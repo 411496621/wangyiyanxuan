@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="header">
-       <div class="header-content">
+       <div class="header-content" @click="$router.push('/search')">
          搜索商品,共19487款好物
        </div>
     </div>
@@ -15,25 +15,23 @@
            </ul>
         </div>
       </div>
-      <transition name="move">
-        <div class="list-detail" v-if="isShow">
+
+        <div class="list-detail" ref="detailNode" :class="{anim:isAnim}">
           <div class="detail-wrapper" v-if="selectedCategory">
             <div class="banner">
-              <img  v-lazy="selectedCategory.bannerUrl" alt="">
+              <img  :src="selectedCategory.bannerUrl" alt="">
             </div>
-            <div class="text">推荐专区分类</div>
-            <ul >
+            <div class="text">{{selectedCategory.name}}分类</div>
+            <ul  >
               <li  v-for="(Item,index) in selectedCategory.subCateList" :key="index">
                 <div>
-                  <img  v-lazy=Item.wapBannerUrl alt="">
+                  <img :src=Item.wapBannerUrl alt="">
                   <span>{{Item.name}}</span>
                 </div>
               </li>
-
             </ul>
           </div>
         </div>
-      </transition>
 
     </div>
   </div>
@@ -46,7 +44,7 @@
     data(){
       return{
         menuIndex:0,
-        isShow:true
+        isAnim:false
       }
     },
     mounted(){
@@ -59,7 +57,7 @@
              click:true
            })
            this.bs2 = new BScroll('.list-detail',{
-             click:true
+             click:true,
            })
         })
       }
@@ -76,10 +74,11 @@
     watch:{
       selectedCategory(){
         clearTimeout(this.timeoutId)
-        this.isShow = false
+        this.isAnim = true
         this.timeoutId = setTimeout(()=>{
-          this.isShow = true
-        },30)
+          this.isAnim = false
+          this.bs2.refresh()
+        },800)
       }
     }
   }
@@ -93,6 +92,7 @@
       left: 0
       right: 0
       z-index 5
+      background: #fff
       .header-content
         width: 690px
         height: 56px
@@ -164,20 +164,25 @@
                   display block
                   line-height 56px
 
-
-
       .list-detail
-         margin-left 162px
+         padding-left  162px
          height 1104px
          overflow hidden
          font-size 24px
          color #333
-         &.move-enter-active,&.move-leave-active
-           transition all .5s
-         &.move-enter, &.move-leave-to
-           transform translateY(-4%)
+         &.anim
+           animation  move  .8s
+      @keyframes move
+         30%
+           transform  translate3d(0, -100px, 0)
+         60%
+           transform translate3d(0, 100px, 0)
+         80%
+           transform  translate3d(0,-20px, 0)
+         100%
+           transform translate3d()
 
-         .detail-wrapper
+   .detail-wrapper
             padding 30px 30px 20px 30px
             .banner
               height 192px

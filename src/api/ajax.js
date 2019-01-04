@@ -1,5 +1,5 @@
 import axios from "axios"
-
+import qs from "querystring"
 export default (url,data={},method="GET")=>{
    let promise
    if(method==="GET"){
@@ -8,8 +8,15 @@ export default (url,data={},method="GET")=>{
          params:data
        }
      )
-   }else{
+   }else if(method==='POST'){
      promise = axios.post(url,data)
+   }else if(method==='POSTFORM'){
+     promise = axios({
+       url,
+       data:qs.stringify(data),
+       headers: { 'content-type': 'application/x-www-form-urlencoded' },
+       method: 'POST',
+     })
    }
    return new Promise((resolve,reject)=>{
          promise.then(response=>{

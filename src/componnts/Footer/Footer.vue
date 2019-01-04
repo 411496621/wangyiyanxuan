@@ -8,7 +8,7 @@
       <i class="iconfont icon-category"></i>
       <span>分类</span>
     </div>
-    <div class="item" @click="$router.push('/findgoods')" :class="{active:$route.path==='/findgoods'}">
+    <div class="item" @click="$router.push('/findgoods')" :class="{active:$route.path.includes('/findgoods')}">
       <i class="iconfont icon-cubelifangti"></i>
       <span>识物</span>
     </div>
@@ -24,7 +24,10 @@
 </template>
 
 <script>
+
+
   export default {
+
   }
 </script>
 
