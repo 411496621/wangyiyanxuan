@@ -502,5 +502,16 @@
                font-size 24px
                color #333
                margin-bottom 10px
+</style>
+
+<style lang="stylus" rel="stylesheet/stylus">
+ #pages
+   bottom 20px
+  .swiper-pagination-bullet
+     display inline-block
+     width: 50px
+     height: 5px
+     border-radius 0
+     background: rgba(255,255,255,1)
 
 </style>
