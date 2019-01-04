@@ -36,6 +36,7 @@
     height 80px
     display flex
     background: #fff
+    z-index 10
     top-border-1px(#ccc)
     @extends .border-1px
     position fixed

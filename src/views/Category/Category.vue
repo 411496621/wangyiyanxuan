@@ -8,37 +8,81 @@
     <div class="main">
       <div class="list-menu">
         <div class="menu-wrapper">
-           <ul>
-              <li>
-                <span>推荐专区</span>
+           <ul class="list">
+              <li :class="{active:index===menuIndex}" v-for="(Item,index) in categorylist" :key="index" @click="menuIndex=index">
+                <span>{{Item.name}}</span>
               </li>
            </ul>
         </div>
       </div>
-      <div class="list-detail">
-        <div class="detail-wrapper">
-          <div class="banner">
-            <img src="http://yanxuan.nosdn.127.net/135cfb8a563c983af4710a24f3b34f85.jpg" alt="">
+      <transition name="move">
+        <div class="list-detail" v-if="isShow">
+          <div class="detail-wrapper" v-if="selectedCategory">
+            <div class="banner">
+              <img  v-lazy="selectedCategory.bannerUrl" alt="">
+            </div>
+            <div class="text">推荐专区分类</div>
+            <ul >
+              <li  v-for="(Item,index) in selectedCategory.subCateList" :key="index">
+                <div>
+                  <img  v-lazy=Item.wapBannerUrl alt="">
+                  <span>{{Item.name}}</span>
+                </div>
+              </li>
+
+            </ul>
           </div>
-          <div class="text">推荐专区分类</div>
-          <ul>
-            <li>
-              <div>
-                <img src="http://yanxuan.nosdn.127.net/1fa42bd292337aaaf80612b6e208099b.png" alt="">
-                <span>真丝满价折</span>
-              </div>
-            </li>
-
-
-          </ul>
         </div>
-      </div>
+      </transition>
+
     </div>
   </div>
 </template>
 
 <script>
-  export default {}
+  import {mapState} from "vuex"
+  import BScroll from "better-scroll"
+  export default {
+    data(){
+      return{
+        menuIndex:0,
+        isShow:true
+      }
+    },
+    mounted(){
+      this.$store.dispatch('getCategorylist',this.initBScroll)
+    },
+    methods:{
+      initBScroll(){
+        this.$nextTick(()=>{
+           this.bs1 = new BScroll('.menu-wrapper',{
+             click:true
+           })
+           this.bs2 = new BScroll('.list-detail',{
+             click:true
+           })
+        })
+      }
+    },
+    computed:{
+      ...mapState({
+        categorylist: state=>state.categorylist.categorylist
+      }),
+      selectedCategory(){
+          const {menuIndex} = this
+          return this.categorylist.find((item,index)=>index===menuIndex)
+      }
+    },
+    watch:{
+      selectedCategory(){
+        clearTimeout(this.timeoutId)
+        this.isShow = false
+        this.timeoutId = setTimeout(()=>{
+          this.isShow = true
+        },30)
+      }
+    }
+  }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
@@ -48,6 +92,7 @@
       position fixed
       left: 0
       right: 0
+      z-index 5
       .header-content
         width: 690px
         height: 56px
@@ -60,6 +105,7 @@
         margin-top 16px
 
    .main
+      overflow hidden
       padding-top 88px
       position relative
       &:before
@@ -126,6 +172,11 @@
          overflow hidden
          font-size 24px
          color #333
+         &.move-enter-active,&.move-leave-active
+           transition all .5s
+         &.move-enter, &.move-leave-to
+           transform translateY(-4%)
+
          .detail-wrapper
             padding 30px 30px 20px 30px
             .banner
