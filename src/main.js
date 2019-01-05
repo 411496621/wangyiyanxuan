@@ -7,6 +7,7 @@ import Split from  "./componnts/Split/Split"
 import VueLazyLoad from "vue-lazyload"
 import loading from "./common/images/loading.gif"
 import {Header} from "mint-ui"
+import "./filter"
 Vue.use(VueLazyLoad, {
   loading
 })
@@ -23,5 +24,9 @@ new Vue({
   store
 })
 
-
+;(function () {
+  let htmlNode = document.documentElement
+  const width = htmlNode.clientWidth
+  htmlNode.style.fontSize = width/10 + 'px'
+})()
 

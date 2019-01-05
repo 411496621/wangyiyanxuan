@@ -6,7 +6,7 @@
         <div class="input-text" @click="$router.push('/search')">
           <span class="placeholder">搜索商品,共19959款好物</span>
         </div>
-        <div class="right">登录</div>
+        <div class="right" @click="$router.push('/profile')">登录</div>
       </div>
       <div class="nav-wrapper">
         <div class="tabs">

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="find-goods">
     <mt-header fixed title="网易严选">
       <router-link to="/" slot="left">
         <i class="iconfont icon-shouye"></i>
@@ -8,7 +8,6 @@
         <i class="iconfont icon-gouwuche"></i>
       </router-link>
     </mt-header>
-    <div class="line"></div>
     <nav class="nav-wrapper">
       <ul class="nav-list">
         <li :class="{active:$route.path==='/findgoods/tab0'}"><router-link to="/findgoods/tab0">推荐</router-link></li>
@@ -18,9 +17,7 @@
         <li :class="{active:$route.path==='/findgoods/tab4'}"><router-link to="/findgoods/tab4">HOME</router-link></li>
       </ul>
     </nav>
-    <div class="main">
       <router-view />
-    </div>
   </div>
 </template>
 
@@ -30,7 +27,11 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus"  scoped>
+  .find-goods
+    width: 100%
+    height: 100%
   .mint-header
+     z-index 5
      height 50*2px
      color #666
      font-size 20*2px
@@ -47,6 +48,7 @@
      width 100%
      left: 0
      top: 100px
+     z-index 5
      .nav-list
         height 100%
         display flex
@@ -65,6 +67,4 @@
           a
             color  #B4282D
 
-  .main
-    margin-top (50+36)*2 px
 </style>

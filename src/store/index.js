@@ -3,6 +3,7 @@ import Vuex from "vuex"
 import cateList from "./modules/catelist"
 import categorylist from "./modules/categorylist"
 import searchList from "./modules/SearchList"
+import topiclist from "./modules/topiclist"
 import actions from "./actions"
 import getters from "./getters"
 Vue.use(Vuex)
@@ -11,7 +12,8 @@ export default new Vuex.Store({
   modules:{
     cateList,
     categorylist,
-    searchList
+    searchList,
+    topiclist
   },
   actions,
   getters

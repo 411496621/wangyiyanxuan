@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="atguigu">
     <transition name="show">
       <keep-alive>
         <router-view />
@@ -21,6 +21,9 @@
 <style lang="stylus" rel="stylesheet/stylus" >
   body
    font-size 24px
+   .atguigu
+     width: 100%
+     height 100%
    .show-enter-active,.show-leave-active
       transition opacity .5s
    .show-enter,.show-leave-to
