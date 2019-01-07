@@ -17,7 +17,9 @@
         <li :class="{active:$route.path==='/findgoods/tab4'}"><router-link to="/findgoods/tab4">HOME</router-link></li>
       </ul>
     </nav>
+    <keep-alive>
       <router-view />
+    </keep-alive>
   </div>
 </template>
 

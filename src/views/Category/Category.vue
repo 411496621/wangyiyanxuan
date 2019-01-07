@@ -116,6 +116,7 @@
         background:rgba(0,0,0,0.15)
         position absolute
         top 88px
+        z-index 6
       &:after
         content ''
         display block
